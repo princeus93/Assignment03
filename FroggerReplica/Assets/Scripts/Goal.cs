@@ -4,13 +4,16 @@ using UnityEngine.SceneManagement;
 
 public class Goal : MonoBehaviour
 {
-    
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
-
-        Debug.Log("You win");
-        Score.currentScore += 100;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        if (collision.tag == "Player")
+        {
+            Debug.Log("+100 points");
+            Score.currentScore += 100;
+            //PlayerPrefs.Save();
+           // DontDestroyOnLoad(gameObject);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            
+        }
     }
 }

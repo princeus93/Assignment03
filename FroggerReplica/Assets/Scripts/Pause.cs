@@ -6,9 +6,11 @@ using UnityEngine.UI;
 public class Pause : MonoBehaviour
 {
     public static bool gameIsPaused;
+    public PlayerSettings ps;
 
+   
     private void Update()
-    {
+    {       
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             gameIsPaused = !gameIsPaused;
@@ -20,6 +22,7 @@ public class Pause : MonoBehaviour
         if (gameIsPaused)
         {
             Time.timeScale = 0f;
+            
 
         }
         else

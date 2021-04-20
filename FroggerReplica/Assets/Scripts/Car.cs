@@ -5,36 +5,43 @@ using UnityEngine;
 public class Car : MonoBehaviour
 {
     public Rigidbody2D rb;
-    public float minSpeed = 4f;
-    public  float maxspeed = 20f;
+    public float minSpeed = 10f;
+    public  float maxSpeed = 15f;
+   //float newMinSpeed, newMaxSpeed;
 
-    float speed = 1f;
+
+   public float speed = 1f;
+    private PlayerSettings ps;
 
     private void Start()
     {
-        
-      speed = Random.Range(minSpeed, maxspeed);
+        //minSpeed = ps.minSpeed;
+       // maxSpeed = ps.maxSpeed;
+        speed = Random.Range(minSpeed, maxSpeed);
     }
+
     void FixedUpdate()
     {
         Vector2 forward = new Vector2(transform.right.x, transform.right.y);
         rb.MovePosition(rb.position + forward * Time.fixedDeltaTime * speed);
- 
     }
 
     public void changeSpeed(float newSpeed)
     {
+       // ps.speed = newSpeed;
         speed = newSpeed;
     }
-
+    
     public void changeMinSpeed(float newMinSpeed)
     {
-        minSpeed = newMinSpeed;   
+        //newMinSpeed = ps.minSpeed;
+        minSpeed = newMinSpeed; 
     }
 
     public void changeMaxSpeed(float newMaxSpeed)
     {
-        maxspeed = newMaxSpeed;
+        //newMaxSpeed = ps.maxSpeed;
+        maxSpeed = newMaxSpeed;
     }
 }
 
